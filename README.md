@@ -55,8 +55,7 @@ That limitation is the interesting part and why it's a demo.
 ## Build
 
 Written in Solidity `^0.8.20`. Compiled and deployed with
-[Remix](https://remix.ethereum.org) - no build system required. Source is
-verified on [Sourcify](https://sourcify.dev).
+[Remix](https://remix.ethereum.org), verified on [Sourcify](https://sourcify.dev).
 
 ## License
 
