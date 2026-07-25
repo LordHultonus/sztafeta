@@ -3,10 +3,10 @@
 A minimal on-chain relay baton, deployed on Base mainnet.
 
 Anyone can create a baton. Only whoever currently holds it can pass it on. Every
-handoff is stamped onchain — who, to whom, when — and the resulting chain of
-custody cannot be edited or deleted by anyone, including me.
+handoff is stamped onchain - who, to whom and when. The resulting chain of
+custody cannot be edited or deleted by anyone. The Basics.
 
-**Contract:** [`0x69dc2e4c75Da11E79DABADAB569C8cfea522063D`](https://basescan.org/address/0x69dc2e4c75Da11E79DABADAB569C8cfea522063D) (Base mainnet, chain id 8453)
+**Contract:** [`0x69dc2e4c75Da11E79DABADAB569C8cfea522063D`](https://basescan.org/address/0x69dc2e4c75Da11E79DABADAB569C8cfea522063D)
 
 ## What this is
 
@@ -21,8 +21,7 @@ useful.
 
 ## What it does
 
-The contract holds no funds. There is no `payable` function anywhere in it — it
-cannot receive or send a single wei. It only records events.
+The contract holds no funds. There is no `payable` function anywhere in it, it only records events.
 
 | Functions | What they do |
 | --- | --- |
@@ -56,7 +55,7 @@ That limitation is the interesting part and why it's a demo.
 ## Build
 
 Written in Solidity `^0.8.20`. Compiled and deployed with
-[Remix](https://remix.ethereum.org) — no build system required. Source is
+[Remix](https://remix.ethereum.org) - no build system required. Source is
 verified on [Sourcify](https://sourcify.dev).
 
 ## License
