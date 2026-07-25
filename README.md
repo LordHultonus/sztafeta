@@ -8,12 +8,12 @@ custody cannot be edited or deleted by anyone, including me.
 
 **Contract:** [`0x69dc2e4c75Da11E79DABADAB569C8cfea522063D`](https://basescan.org/address/0x69dc2e4c75Da11E79DABADAB569C8cfea522063D) (Base mainnet, chain id 8453)
 
-## What this is, honestly
+## What this is
 
-This is a small, deliberately minimal contract — my first deployment on Base.
+A small, deliberately minimal contract and my first deployment on Base.
 It is not a product and does not pretend to be one. It exists because I wanted
-to go through the whole pipeline once, end to end: write the contract, test it,
-deploy it to mainnet, verify the source, publish it.
+to go through the whole pipeline once: write the contract, test it,
+deploy to mainnet.
 
 If you are looking for a production system, this is not it. If you are looking
 for a readable 70-line example of an append-only chain of custody, it might be
@@ -22,9 +22,9 @@ useful.
 ## What it does
 
 The contract holds no funds. There is no `payable` function anywhere in it — it
-cannot receive or send a single wei. It only records facts.
+cannot receive or send a single wei. It only records events.
 
-| Function | What it does |
+| Functions | What they do |
 | --- | --- |
 | `createBaton(string name)` | Creates a baton. The caller becomes its first holder. Returns the baton id. |
 | `pass(uint256 batonId, address to)` | Passes a baton you currently hold to someone else. |
@@ -42,20 +42,16 @@ outside without scanning storage.
 require(msg.sender == baton.holder, "you do not hold this baton");
 ```
 
-You cannot pass what you do not hold. Not the creator, not the deployer, not
-anyone. There is no admin, no owner, no upgrade path and no back door — once
-deployed, this code is the final word.
+You cannot pass what you do not hold.
 
 ## What it does not do
 
-It records that an address claimed a handoff. It does not — and cannot — prove
-that anything happened in the physical world. A blockchain guarantees that a
-record was not altered *after* it was written; it guarantees nothing about
+It records that an address claimed a handoff. It does not and cannot prove
+that anything happened in the physical world. It guarantees nothing about
 whether the record was true *when* it was written. Any design that needs a human
-to type in a real-world fact inherits that weakness, and no amount of
-cryptography fixes it.
+to type in a real-world fact inherits that weakness.
 
-That limitation is the interesting part, and it is why this stays a demo.
+That limitation is the interesting part and why it's a demo.
 
 ## Build
 
